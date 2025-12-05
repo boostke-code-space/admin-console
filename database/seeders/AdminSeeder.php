@@ -81,7 +81,7 @@ class AdminSeeder extends Seeder
             }
         }
 
-        $superRole = Role::where('name', 'super-')->first();
+        $superRole = Role::where('name', 'super-admin')->first();
         Permission::all()->each(function ($p) use ($superRole) {
             $superRole->givePermissionTo($p);
         });
