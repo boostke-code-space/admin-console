@@ -95,7 +95,7 @@ class User extends Authenticatable implements MustVerifyPhone, FilamentUser
         return $this->hasOne(Referral::class, 'recruited_id');
     }
 
-    public function canAccessPanel(Panel $panel)
+    public function canAccessPanel(Panel $panel): bool
     {
         return $this->hasRole('admin');
     }
