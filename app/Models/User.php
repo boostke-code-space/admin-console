@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Contracts\MustVerifyPhone;
 use App\Models\Traits\MustVerifyPhone as MustVerifyPhoneTrait;
+use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +18,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 // added
 
-class User extends Authenticatable implements MustVerifyPhone
+class User extends Authenticatable implements MustVerifyPhone, FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use Billable, HasFactory, MustVerifyEmail, MustVerifyPhoneTrait, Notifiable, HasRoles;
@@ -94,8 +95,8 @@ class User extends Authenticatable implements MustVerifyPhone
         return $this->hasOne(Referral::class, 'recruited_id');
     }
 
-    public function canAccessPanel()
+    public function canAccessPanel(Panel $panel)
     {
-        return $this->hasRole(['admin']);
+        return $this->hasRole('admin');
     }
 }
