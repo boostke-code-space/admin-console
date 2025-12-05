@@ -36,6 +36,7 @@ class User extends Authenticatable implements MustVerifyPhone
         'phone_verified_at',
         'email_verified_at',
         'stripe_id',
+        'role'
     ];
 
     /**

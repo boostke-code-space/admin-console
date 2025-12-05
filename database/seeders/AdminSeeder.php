@@ -122,7 +122,7 @@ class AdminSeeder extends Seeder
                 'name' => 'Mwangi Ian',
                 'email' => 'elvisrockfield@gmail.com',
                 'roles' => ['admin', 'super-admin'],
-                'phone' => '+25472421866'
+                'phone' => '+25472421866',
             ],
             [
                 'name' => 'Meshack Ayaga',
@@ -164,7 +164,8 @@ class AdminSeeder extends Seeder
                 [
                     'name' => $admin['name'],
                     'password' => bcrypt('password'),
-                    'phone' => $admin['phone']
+                    'phone' => $admin['phone'],
+                    'role' => 'customer',
                 ]
             );
             $user->assignRole($admin['roles']);
