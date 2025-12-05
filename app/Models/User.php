@@ -20,7 +20,7 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable implements MustVerifyPhone
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use Billable, HasFactory, MustVerifyEmail, MustVerifyPhoneTrait, Notifiable, SoftDeletes, HasRoles;
+    use Billable, HasFactory, MustVerifyEmail, MustVerifyPhoneTrait, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
